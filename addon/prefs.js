@@ -64,10 +64,10 @@ pref(
 );
 
 pref("__prefsPrefix__.ollama.endPoint", "http://127.0.0.1:11434/api/generate");
-pref("__prefsPrefix__.ollama.model", "llama3");
+pref("__prefsPrefix__.ollama.model", "yi");
 pref(
   "__prefsPrefix__.ollama.prompt",
-  "Translate the following text from ${langFrom} to ${langTo}: ${sourceText}"
+  "Translate the following text from ${langFrom} to ${langTo}:\n ${sourceText}"
 );
 
 
