@@ -41,33 +41,33 @@ pref("__prefsPrefix__.enableAutoDetectLanguage", true);
 pref("__prefsPrefix__.disabledLanguages", "");
 pref("__prefsPrefix__.extraEngines", "");
 pref("__prefsPrefix__.titleColumnMode", "raw");
-pref(
-  "__prefsPrefix__.chatGPT.endPoint",
-  "https://api.openai.com/v1/chat/completions",
-);
+pref("__prefsPrefix__.chatGPT.endPoint", "https://api.openai.com/v1/chat/completions");
 pref("__prefsPrefix__.chatGPT.model", "gpt-3.5-turbo");
 pref("__prefsPrefix__.chatGPT.temperature", "1.0");
-pref(
-  "__prefsPrefix__.chatGPT.prompt",
-  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
-);
+pref("__prefsPrefix__.chatGPT.prompt", "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.");
 pref("__prefsPrefix__.azureGPT.endPoint", "");
 pref("__prefsPrefix__.azureGPT.model", "");
 pref("__prefsPrefix__.azureGPT.apiVersion", "2023-05-15");
 pref("__prefsPrefix__.azureGPT.temperature", "1.0");
+pref("__prefsPrefix__.azureGPT.prompt", "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.");
+pref("__prefsPrefix__.gemini.endPoint", "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent");
+pref("__prefsPrefix__.gemini.prompt", "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.");
+pref("__prefsPrefix__.cnkiRegex", "(查看名企职位.+?https://dict.cnki.net[a-zA-Z./]+.html?)");
+
+// Add the following preferences for rwkv and ollama
+pref("__prefsPrefix__.rwkv.endPoint", "http://127.0.0.1:8000/v1/completions");
+pref("__prefsPrefix__.rwkv.model", "gpt-3.5-turbo");
+pref("__prefsPrefix__.rwkv.temperature", "0.7");
 pref(
-  "__prefsPrefix__.azureGPT.prompt",
-  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+  "__prefsPrefix__.rwkv.prompt",
+  "Translate this into ${langTo}.\n\n${langFrom}: ${sourceText}\n:"
 );
+
+pref("__prefsPrefix__.ollama.endPoint", "http://127.0.0.1:11434/api/generate");
+pref("__prefsPrefix__.ollama.model", "llama3");
 pref(
-  "__prefsPrefix__.gemini.endPoint",
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+  "__prefsPrefix__.ollama.prompt",
+  "Translate the following text from ${langFrom} to ${langTo}: ${sourceText}"
 );
-pref(
-  "__prefsPrefix__.gemini.prompt",
-  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
-);
-pref(
-  "__prefsPrefix__.cnkiRegex",
-  "(查看名企职位.+?https://dict.cnki.net[a-zA-Z./]+.html?)",
-);
+
+
