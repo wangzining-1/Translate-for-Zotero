@@ -146,6 +146,7 @@ export function registerPrompt() {
                       node
                         .querySelectorAll("span")
                         .forEach((e) => (e.style.backgroundColor = ""));
+                      const span = document.createElement("span") as HTMLElement;
                       span.style.backgroundColor = highlightColor;
 
                       twinNode
@@ -168,14 +169,14 @@ export function registerPrompt() {
                         twinNodeContainer.scrollTo(
                           0,
                           twinSpan.offsetTop -
-                            twinNodeContainer.offsetHeight * 0.5 -
-                            nodeContainer.offsetHeight,
+                          twinNodeContainer.offsetHeight * 0.5 -
+                          nodeContainer.offsetHeight,
                         );
                       } else {
                         twinNodeContainer.scrollTo(
                           0,
                           twinSpan.offsetTop -
-                            twinNodeContainer.offsetHeight * 0.5,
+                          twinNodeContainer.offsetHeight * 0.5,
                         );
                       }
                     },

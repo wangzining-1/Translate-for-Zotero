@@ -43,9 +43,8 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
     secretValidator(secret: string) {
       const parts = secret?.split("#");
       const flag = [2, 3].includes(parts.length);
-      const partsInfo = `AppID: ${parts[0]}\nAppKey: ${parts[1]}\nVocabID: ${
-        parts[2] ? parts[2] : ""
-      }`;
+      const partsInfo = `AppID: ${parts[0]}\nAppKey: ${parts[1]}\nVocabID: ${parts[2] ? parts[2] : ""
+        }`;
       const source = getService("youdaozhiyun");
       return {
         secret,
@@ -176,9 +175,8 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
     secretValidator(secret: string) {
       const parts = secret?.split("#");
       const flag = [2, 3].includes(parts.length);
-      const partsInfo = `AppID: ${parts[0]}\nKey: ${parts[1]}\nAction: ${
-        parts[2] ? parts[2] : "0"
-      }`;
+      const partsInfo = `AppID: ${parts[0]}\nKey: ${parts[1]}\nAction: ${parts[2] ? parts[2] : "0"
+        }`;
       const source = getService("baidu");
       return {
         secret,
@@ -242,11 +240,9 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
     secretValidator(secret: string) {
       const parts = secret?.split("#");
       const flag = [2, 3, 4].includes(parts.length);
-      const partsInfo = `SecretId: ${parts[0]}\nSecretKey: ${
-        parts[1]
-      }\nRegion: ${parts[2] ? parts[2] : "ap-shanghai"}\nProjectId: ${
-        parts[3] ? parts[3] : "0"
-      }
+      const partsInfo = `SecretId: ${parts[0]}\nSecretKey: ${parts[1]
+        }\nRegion: ${parts[2] ? parts[2] : "ap-shanghai"}\nProjectId: ${parts[3] ? parts[3] : "0"
+        }
         `;
       const source = getService("tencent");
       return {
@@ -278,31 +274,25 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
             ? "The secret is not set."
             : flag
               ? partsInfo
-              : `The secret format of Xftrans Domain Text Translation is AppID#ApiSecret#ApiKey. The secret must have 3 parts joined by '#', but got ${parts?.length}.\n${partsInfo}`,
+              : `The secret format of Xunfei(XFyun) Text Translation is AppID#ApiSecret#ApiKey. The secret must have 3 parts joined by '#', but got ${parts?.length}.\n${partsInfo}`,
       };
     },
   },
   {
     type: "sentence",
-    id: "chatgpt",
+    id: "mglip",
     defaultSecret: "",
     secretValidator(secret: string) {
-      const status = secret.length === 51 && /^sk-/.test(secret);
-      const empty = secret.length === 0;
       return {
         secret,
-        status,
-        info: empty
-          ? "The secret is not set."
-          : status
-            ? "Click the button to check connectivity."
-            : "Ths secret key format is invalid.",
+        status: Boolean(secret),
+        info: "",
       };
     },
   },
   {
     type: "sentence",
-    id: "azuregpt",
+    id: "rwkv",
     defaultSecret: "",
     secretValidator(secret: string) {
       const flag = Boolean(secret);
@@ -315,7 +305,7 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
   },
   {
     type: "sentence",
-    id: "gemini",
+    id: "ollama",
     defaultSecret: "",
     secretValidator(secret: string) {
       const flag = Boolean(secret);
@@ -325,32 +315,9 @@ export const SERVICES: Readonly<Readonly<TranslateService>[]> = <const>[
         info: flag ? "" : "The secret is not set.",
       };
     },
-  },
-  {
-    type: "word",
-    id: "bingdict",
-  },
-  {
-    type: "word",
-    id: "haicidict",
-  },
-  {
-    type: "word",
-    id: "youdaodict",
-  },
-  {
-    type: "word",
-    id: "freedictionaryapi",
-  },
-  {
-    type: "word",
-    id: "webliodict",
-  },
-  {
-    type: "word",
-    id: "collinsdict",
   },
 ];
+
 
 export function getService(id: string) {
   return SERVICES[SERVICES.findIndex((service) => service.id === id)];
@@ -370,7 +337,7 @@ export function inferLanguage(str: string) {
 export function matchLanguage(str: string) {
   return (
     LANG_CODE[
-      LANG_CODE_INDEX_MAP[str.split("-")[0].split("_")[0].toLowerCase()]
+    LANG_CODE_INDEX_MAP[str.split("-")[0].split("_")[0].toLowerCase()]
     ] || {
       code: "",
       name: "Unknown",
@@ -1611,9 +1578,9 @@ function mapISO6393to6391(code: string) {
   return (
     ISO6393_3_TO_2[code as keyof typeof ISO6393_3_TO_2] ||
     ISO6393_3_TO_2[
-      MACRO_LANG_MAP[
-        code as keyof typeof MACRO_LANG_MAP
-      ] as keyof typeof ISO6393_3_TO_2
+    MACRO_LANG_MAP[
+    code as keyof typeof MACRO_LANG_MAP
+    ] as keyof typeof ISO6393_3_TO_2
     ] ||
     undefined
   );
