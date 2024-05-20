@@ -67,7 +67,7 @@ pref("__prefsPrefix__.ollama.endPoint", "http://127.0.0.1:11434/api/generate");
 pref("__prefsPrefix__.ollama.model", "yi");
 pref(
   "__prefsPrefix__.ollama.prompt",
-  "Translate the following text from ${langFrom} to ${langTo}:\n ${sourceText}"
+  "Task: Translate the given ${langFrom} text into ${langTo} in three stages: literal translation, reflection, and free translation. Only the final free translation result should be returned. \nSteps:\n1.Literal Translation: Translate the text word-for-word, maintaining the original structure and meaning as closely as possible.\n2.Reflection: Reflect on the literal translation, identify and note any phrases or concepts that might be unclear or awkward in Chinese.\n3.Free Translation: Rewrite the text in natural and fluent Simplified Chinese, considering cultural context and readability.\nNote: Only return the final free translation result.\nYour Task:\nTranslate the following text:\nEnglish Text: '${sourceText}'"
 );
 
 

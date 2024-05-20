@@ -10,11 +10,12 @@ const ollamaTranslate = async function (
     function transformContent(
         langFrom: string,
         langTo: string,
+        prefix: string,
         sourceText: string,
     ) {
         const langMap: { [key: string]: string } = {
             en: "English",
-            "zh-CN": "Chinese",
+            "zh-CN": "Simplified Chinese",
             fr: "French",
             de: "German",
             es: "Spanish",
@@ -30,12 +31,15 @@ const ollamaTranslate = async function (
         const fromLanguage = langMap[langFrom] || langFrom;
         const toLanguage = langMap[langTo] || langTo;
 
-        return `Translate this into ${toLanguage}.\n\n${fromLanguage}:\n${sourceText}`;
+        return (getPref(`${prefix}.prompt`) as string)
+            .replaceAll("${langFrom}", fromLanguage)
+            .replaceAll("${langTo}", toLanguage)
+            .replaceAll("${sourceText}", sourceText);
     }
 
     const requestBody = {
         model: model,
-        prompt: transformContent(data.langfrom, data.langto, data.raw),
+        prompt: transformContent(data.langfrom, data.langto, 'ollama', data.raw),
         stream: false,
         temperature: temperature
     };
