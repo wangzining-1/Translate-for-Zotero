@@ -47,7 +47,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "prettier": "^3.3.3",
-    "typescript": "^5.4.5",
+    "typescript": "^5.7.2",
     "typescript-eslint": "^8.0.0-alpha.54",
     "zotero-plugin-scaffold": "^0.1.2",
     "zotero-types": "^2.0.1"
